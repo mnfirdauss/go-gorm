@@ -1,8 +1,6 @@
 package service
 
 import (
-	"errors"
-
 	"github.com/mnfirdauss/go-gorm/model"
 	"github.com/stretchr/testify/mock"
 )
@@ -12,10 +10,6 @@ type UserRepositoryMock struct {
 }
 
 func (um *UserRepositoryMock) CreateUser(user *model.User) error {
-	// argument := um.Mock.Called(user)
-	if user == nil {
-		return errors.New("error")
-	} else {
-		return nil
-	}
+	args := um.Mock.Called(user)
+	return args.Error(0)
 }

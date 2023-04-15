@@ -4,7 +4,6 @@ import (
 	"crypto/x509"
 	"encoding/json"
 	"encoding/pem"
-	"fmt"
 	"log"
 	"strconv"
 	"time"
@@ -31,7 +30,7 @@ EHK9AyZbafH3s+QwFG5zIrv8gf6Fx5qItw==
 
 	key, err := x509.ParsePKCS8PrivateKey(block.Bytes)
 	if err != nil {
-		fmt.Println("Error parsing private key ", err.Error())
+		log.Println("Error parsing private key ", err.Error())
 		return "", err
 	}
 

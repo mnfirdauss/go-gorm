@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"log"
 	"net/http"
 	"strconv"
 
@@ -16,8 +15,8 @@ type Controller struct {
 }
 
 func (m *Controller) GetUser(c echo.Context) error {
-	user := c.Get("user").(model.User)
-	log.Printf("user data: %+v/n", user)
+	// user := c.Get("user").(model.User)
+	// log.Printf("user data: %+v/n", user)
 
 	var users []model.User
 

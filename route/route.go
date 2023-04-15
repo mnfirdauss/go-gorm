@@ -3,7 +3,6 @@ package route
 import (
 	"github.com/labstack/echo/v4"
 
-	echojwt "github.com/labstack/echo-jwt/v4"
 	"github.com/mnfirdauss/go-gorm/controller"
 	"github.com/mnfirdauss/go-gorm/middleware"
 )
@@ -17,7 +16,7 @@ func StartRoute() *echo.Echo {
 	userGroup := e.Group("/users")
 	userGroup.POST("/", userController.CreateUser)
 
-	middleware.BasicAuthMiddleware(e)
+	// middleware.BasicAuthMiddleware(e)
 	userGroup.GET("/", userController.GetUser)
 
 	userGroup.POST("/batch", controller.CreateBatchUser)
@@ -26,7 +25,7 @@ func StartRoute() *echo.Echo {
 	userGroup.DELETE("/:id", controller.DeleteUser)
 
 	profileGroup := e.Group("/profile")
-	profileGroup.Use(echojwt.JWT([]byte("secret")))
+	// profileGroup.Use(echojwt.JWT([]byte("secret")))
 	profileGroup.GET("/", controller.GetProfile)
 
 	return e
