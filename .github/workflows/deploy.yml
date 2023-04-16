@@ -20,8 +20,7 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         port: 22
         script: |
-          ls
-          cd app/go-gorm
+          cd app/go-gorm/
           git pull
           go build .
           sudo systemctl restart go-application.service 
