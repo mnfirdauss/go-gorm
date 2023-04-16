@@ -33,7 +33,6 @@ func (m *Controller) CreateUser(c echo.Context) error {
 	err := c.Bind(&user)
 	if err != nil {
 		return c.JSON(http.StatusBadRequest, data)
-
 	}
 
 	err = service.GetUserRepository().CreateUser(&user)

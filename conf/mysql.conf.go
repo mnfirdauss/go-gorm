@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -11,6 +12,8 @@ import (
 var DBMysql *gorm.DB
 
 func init() {
+	godotenv.Load(".env")
+
 	initDB()
 }
 
