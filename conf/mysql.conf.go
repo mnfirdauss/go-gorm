@@ -4,19 +4,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
 var DBMysql *gorm.DB
 
-func init() {
-	godotenv.Load(".env")
-	initDB()
-}
-
-func initDB() {
+func InitDB() {
 	var err error
 
 	dbUsername := os.Getenv("DB_USERNAME")
