@@ -11,7 +11,7 @@ import (
 func init() {
 	godotenv.Load(".env")
 	conf.InitDB()
-	model.InitMigrate(asd)
+	model.InitMigrate()
 }
 
 func main() {
