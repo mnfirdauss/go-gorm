@@ -23,5 +23,5 @@ jobs:
           export PATH=$PATH:/usr/local/go/bin
           cd app/go-gorm/
           git pull
-          go build .
-          sudo systemctl restart go-application.service 
+          sudo docker build -t go-application .
+          sudo docker run -dp 8081:8080 go-application
