@@ -13,7 +13,6 @@ var DBMysql *gorm.DB
 
 func init() {
 	godotenv.Load(".env")
-
 	initDB()
 }
 
