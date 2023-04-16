@@ -9,7 +9,9 @@ import (
 
 func StartRoute() *echo.Echo {
 	e := echo.New()
-
+	e.GET("/", func(c echo.Context) error {
+		return c.JSON(200, "Halo Dunia!")
+	})
 	middleware.LogMiddleware(e)
 
 	userController := controller.Controller{}
