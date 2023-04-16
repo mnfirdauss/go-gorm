@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func init() {
+func InitMigrate() {
 	conf.DBMysql.AutoMigrate(&User{})
 }
 
