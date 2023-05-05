@@ -21,7 +21,7 @@ jobs:
       uses: 'google-github-actions/setup-gcloud@v1'
 
     - name: 'Use gcloud CLI'
-      run: 'gcloud compute ssh instance-1'
+      run: 'gcloud compute ssh instance-1 --zone=asia-southeast2-a'
       
     - name: Deploy
       uses: appleboy/ssh-action@master
