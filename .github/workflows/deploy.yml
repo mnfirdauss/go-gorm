@@ -22,13 +22,14 @@ jobs:
 
     - name: 'Use gcloud CLI'
       run: |
-        gcloud compute ssh instance-1 --zone=asia-southeast2-a
+        gcloud compute ssh root@instance-1 --zone=asia-southeast2-a
         echo $USER
         cd /home
         ls
       
     - name: 'Deploy GCP'
       run: |
+        echo $USER
         cd go-gorm/
         git pull
         docker compose -f docker-compose.production.yml up -d --build
