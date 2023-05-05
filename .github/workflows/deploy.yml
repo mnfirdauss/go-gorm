@@ -23,6 +23,13 @@ jobs:
     - name: 'Use gcloud CLI'
       run: 'gcloud compute ssh instance-1 --zone=asia-southeast2-a'
       
+    - name: 'Deploy GCP'
+      run: |
+        export PATH=$PATH:/usr/local/go/bin
+        cd app/go-gorm/
+        git pull
+        docker compose -f docker-compose.production.yml up -d --build
+      
     - name: Deploy
       uses: appleboy/ssh-action@master
       with:
