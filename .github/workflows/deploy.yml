@@ -22,7 +22,7 @@ jobs:
 
     - name: 'Use gcloud CLI'
       run: |
-        gcloud compute ssh instance-1 --zone=asia-southeast2-a
+        gcloud compute ssh --zone "asia-southeast2-a" "instance-1" --project "ivory-plane-316005"
         echo $USER
         cd /home
         ls
