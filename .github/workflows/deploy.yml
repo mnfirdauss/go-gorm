@@ -24,6 +24,7 @@ jobs:
       with:
         instance_name: 'instance-1'
         zone: 'asia-southeast2-a'
+        user: 'mfirdauss31'
         ssh_private_key: '${{ secrets.GCP_SSH_PRIVATE_KEY }}'
         command: 'cd /home/mfirdauss31/go-gorm/ && git pull && docker compose -f docker-compose.production.yml up -d --build'
     
