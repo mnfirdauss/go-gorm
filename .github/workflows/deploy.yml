@@ -25,7 +25,6 @@ jobs:
         instance_name: 'instance-1'
         zone: 'asia-southeast2-a'
         ssh_private_key: '${{ secrets.GCP_SSH_PRIVATE_KEY }}'
-        script: 'ls'
     
     - name: Deploy
       uses: appleboy/ssh-action@master
