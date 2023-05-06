@@ -17,23 +17,14 @@ jobs:
       with:
         credentials_json: '${{ secrets.GCE_SA_KEY }}'
 
-    - name: 'Set up Cloud SDK'
-      uses: 'google-github-actions/setup-gcloud@v1'
-
-    - name: 'Use gcloud CLI'
-      run: |
-        gcloud compute ssh --zone "asia-southeast2-a" "instance-1" --project "ivory-plane-316005"
-        echo $USER
-        cd /home
-        ls
-      
-    - name: 'Deploy GCP'
-      run: |
-        echo $USER
-        cd go-gorm/
-        git pull
-        docker compose -f docker-compose.production.yml up -d --build
-      
+    - id: 'compute-ssh'
+      uses: 'google-github-actions/ssh-compute@v0'
+      with:
+        instance_name: 'instance-1'
+        zone: 'asia-southeast2-a'
+        ssh_private_key: '${{ secrets.GCP_SSH_PRIVATE_KEY }}'
+        command: 'echo Hello world'
+    
     - name: Deploy
       uses: appleboy/ssh-action@master
       with:
