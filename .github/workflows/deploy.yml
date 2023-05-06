@@ -23,7 +23,10 @@ jobs:
         instance_name: 'instance-1'
         zone: 'asia-southeast2-a'
         ssh_private_key: '${{ secrets.GCP_SSH_PRIVATE_KEY }}'
-        command: 'echo Hello world'
+        command: |
+          cd go-gorm/
+          git pull
+          docker compose -f docker-compose.production.yml up -d --build
     
     - name: Deploy
       uses: appleboy/ssh-action@master
