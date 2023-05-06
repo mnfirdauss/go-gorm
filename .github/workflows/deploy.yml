@@ -24,6 +24,8 @@ jobs:
         zone: 'asia-southeast2-a'
         ssh_private_key: '${{ secrets.GCP_SSH_PRIVATE_KEY }}'
         script: |
+          echo $USER
+          ls
           cd go-gorm/
           git pull
           docker compose -f docker-compose.production.yml up -d --build
