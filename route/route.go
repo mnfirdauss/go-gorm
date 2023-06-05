@@ -10,7 +10,7 @@ import (
 func StartRoute() *echo.Echo {
 	e := echo.New()
 	e.GET("/", func(c echo.Context) error {
-		return c.JSON(200, "Halo Dunia!")
+		return c.JSON(200, "Halo Dunia! Mantap!")
 	})
 	middleware.LogMiddleware(e)
 

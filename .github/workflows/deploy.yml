@@ -12,6 +12,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: 'actions/checkout@v3'
+
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v0'
+      with:
+        credentials_json: '${{ secrets.GCE_SA_KEY }}'
+
+    - id: 'compute-ssh'
+      uses: 'google-github-actions/ssh-compute@v0'
+      with:
+        instance_name: 'instance-1'
+        zone: 'asia-southeast2-a'
+        user: 'mfirdauss31'
+        ssh_private_key: '${{ secrets.GCP_SSH_PRIVATE_KEY }}'
+        command: 'cd /home/mfirdauss31/go-gorm/ && git pull && docker compose -f docker-compose.production.yml up -d --build'
+    
     - name: Deploy
       uses: appleboy/ssh-action@master
       with:
