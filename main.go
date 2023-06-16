@@ -25,7 +25,7 @@ func main() {
 	}))
 	utils.CreateToken(123, "daus")
 
-	if err := route.StartTLS(":8080", "/home/ubuntu/cert.pem", "/home/ubuntu/key.pem"); err != http.ErrServerClosed {
+	if err := route.Start(":8080"); err != http.ErrServerClosed {
 		log.Fatal(err)
 	}
 }
